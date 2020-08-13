@@ -41,7 +41,7 @@ module.exports = {
             use: [{
                 loader: 'file-loader',
                 options: {
-                    name: './[name].[ext]',
+                    name: './assets/[name].[ext]',
                 },
             }],
         },
@@ -51,7 +51,7 @@ module.exports = {
                 {
                     loader: 'ttf-loader',
                     options: {
-                        name: './fonts/[name].[ext]',
+                        name: './assets/fonts/[name].[ext]',
                     },
                 },
             ]
