@@ -129,6 +129,73 @@ const direction = (event) => {
     moveSnake();
 };
 
+let xDown = null;                                                        
+let yDown = null;
+let xUp;
+let yUp;
+let xDiff;
+let yDiff;
+
+function getTouches(evt) {
+  return evt.touches ||             // browser API
+         evt.originalEvent.touches; // jQuery
+}                                                     
+
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];                                      
+    xDown = firstTouch.clientX;                                      
+    yDown = firstTouch.clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    xUp = evt.touches[0].clientX;                                    
+    yUp = evt.touches[0].clientY;
+
+    xDiff = xDown - xUp;
+    yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            if(d===right.text) {
+                d = right.text;
+            } else {
+                d = left.text
+            }
+        } else {
+            if(d===left.text) {
+                d = left.text;
+            } else {
+                d = right.text
+            }
+        }                       
+    } else {
+        if ( yDiff > 0 ) {
+            if(d===down.text) {
+                d = down.text;
+            } else {
+                d = up.text
+            }
+        } else { 
+            if(d===up.text) {
+                d = up.text;
+            } else {
+                d = down.text
+            }
+        }                                                                 
+    }
+    moveSnake();
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+};
+
+document.addEventListener('touchstart', handleTouchStart, false);        
+document.addEventListener('touchmove', handleTouchMove, false);
+
 document.addEventListener('keydown', direction);
 
 let game = setInterval(draw, 500);
