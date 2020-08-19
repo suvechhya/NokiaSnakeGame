@@ -22,8 +22,8 @@ let d = 'RIGHT';
 let score = 0;
 
 const createFood = () => {
-    const foodX = Math.floor(Math.random() * 20 + 1) * box;
-    const foodY = Math.floor(Math.random() * 20 + 1) * box;
+    const foodX = Math.floor(Math.random() * 19 + 1) * box;
+    const foodY = Math.floor(Math.random() * 19 + 1) * box;
     // CHECK IF FOOD FALLS ON TOP OF SNAKE
     let flag = false;
     for(const [index, body] of snake.entries()){
