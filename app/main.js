@@ -3,10 +3,10 @@ import {
     food,
     snake,
     board,
-} from './gameObjects';
-import { directionsEnum } from '../constants/constants';
-import AppleIcon from '../assets/apple.png';
-import '../css/styles.scss';
+} from './js/gameObjects';
+import { directionsEnum } from './constants/constants';
+import AppleIcon from './assets/apple.png';
+import './css/styles.scss';
 
 const {
     left, right, up, down

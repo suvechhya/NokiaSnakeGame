@@ -4,10 +4,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: './app/js/main.js',
+    entry: './app/main.js',
     mode: 'development',
     output: {
-        filename: 'bundle.js',
+        filename: 'main.js',
         path: path.resolve(__dirname, './dist')
     },
     resolve: {
@@ -37,15 +37,6 @@ module.exports = {
             ],
         },
         {
-            test: /\.(png|svg|jpg|gif)$/,
-            use: [{
-                loader: 'file-loader',
-                options: {
-                    name: './assets/[name].[ext]',
-                },
-            }],
-        },
-        {
             test: /\.ttf$/,
             use: [
                 {
@@ -56,11 +47,20 @@ module.exports = {
                 },
             ]
         },
+        {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: [{
+                loader: 'file-loader',
+                options: {
+                    name: './assets/[name].[ext]',
+                },
+            }],
+        }
         ]
     },
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: './',
+        contentBase: './app/',
         writeToDisk: true
     },
     plugins: [
