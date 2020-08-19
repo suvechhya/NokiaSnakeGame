@@ -174,16 +174,16 @@ function handleTouchMove(evt) {
         }                       
     } else {
         if ( yDiff > 0 ) {
-            if(d===down.text) {
-                d = down.text;
-            } else {
-                d = up.text
-            }
-        } else { 
             if(d===up.text) {
                 d = up.text;
             } else {
                 d = down.text
+            }
+        } else { 
+            if(d===down.text) {
+                d = down.text;
+            } else {
+                d = up.text
             }
         }                                                                 
     }
