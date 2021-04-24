@@ -1,6 +1,9 @@
 @import './colors.scss';
 @import './fonts.scss';
 
+body{
+  overflow-y: hidden;
+}
 .header-section{
     background-color: $light-bg;
     border-bottom: 6px solid $background;
